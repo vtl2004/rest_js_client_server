@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <title>User page</title>
+</head>
+<body>
+<th:block th:include="fragments/fragments::navPanel"></th:block>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <br>
+            <ul  class="nav nav-pills flex-column">
+                <!--********************************************************-->
+
+
+
+                <li class="nav-item" sec:authorize="hasAnyAuthority('admin')">
+
+                    <a  class="nav-link" href="/admin/userlist_page">Admin</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAnyAuthority('user')">
+
+                    <a  class="nav-link active" href="/user">User</a>
+                </li>
+
+
+
+                <!--********************************************************-->
+                <!--
+                <li class="nav-item" >
+
+                    <a class="nav-link" href="/admin/users">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/user">User</a>
+                </li>-->
+            </ul>
+        </div>
+        <div class="col-sm-10 px-5 bg-light" style="height: 100vh">
+            <br>
+            <h1>User page</h1>
+
+
+            <span th:text="${username}"></span>!
+        </div>
+    </div>
+</div>
+</body>
+</html>
